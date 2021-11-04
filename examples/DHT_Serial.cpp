@@ -1,16 +1,17 @@
 #include "DHT.h"
 
-#define DHTPIN 2     // Digital pin connected to the DHT sensor
+#define DHTPIN D4     // Digital pin connected to the DHT sensor
 
 //#define DHTTYPE DHT11   // DHT 11
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
+#define BAUD 115200
 
 
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(BAUD);
   Serial.println(F("DHTxx test!"));
 
   dht.begin();
