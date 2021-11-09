@@ -1,8 +1,9 @@
+#include <Arduino.h>
 #include <esp8266wifi.h>
 #include <esp8266httpclient.h>
 
-const char* ssid = "yourNetworkName";
-const char* password = "yourNetworkPassword";
+const char* ssid = "EME_SectorB5 Emergency";
+const char* password = "EME_SectorB5";
 
 void setup () {
  
@@ -16,7 +17,7 @@ void setup () {
     Serial.print("Connecting..");
  
   }
- 
+ Serial.println("Connected ....");
 }
 
 void loop() {
@@ -25,16 +26,15 @@ void loop() {
  
     HTTPClient http;  //Declare an object of class HTTPClient
  
-    http.begin("http://jsonplaceholder.typicode.com/users/1");  //Specify request destination
-    int httpCode = http.GET();                                  //Send the request
- 
+    http.begin("http://jsonplaceholder.typicode.com/posts/99");  //Specify request destination
+    int httpCode = http.GET();
+    
     if (httpCode > 0) { //Check the returning code
  
-      String payload = http.getString();   //Get the request response payload
-      Serial.println(payload);             //Print the response payload
+      String data = http.getString();   //Get the request response payload
+      Serial.println(data);             //Print the response payload
  
     }
- 
     http.end();   //Close connection
  
   }
