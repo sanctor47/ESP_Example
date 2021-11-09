@@ -1,4 +1,5 @@
-#include "DHT.h"
+#include "../.pio/libdeps/nodemcuv2/DHT sensor library/DHT.h"
+// #include "DHT.h"
 
 #define DHTPIN D4     // Digital pin connected to the DHT sensor
 
